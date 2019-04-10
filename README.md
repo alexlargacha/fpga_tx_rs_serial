@@ -15,7 +15,7 @@ It's pure vhdl so it should work in any FPGA IDE, but this example has actually 
 - Run Simulation
 - Check the results in the Behavioral Simulation window
 
-## Ecpected results
+## Expected results
 
 ![](img/ejercicio_19_paridad_calculada_1.PNG?raw=true)
 ![](img/ejercicio_19_paridad_calculada_2.PNG?raw=true)

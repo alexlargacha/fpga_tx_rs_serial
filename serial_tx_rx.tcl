@@ -102,7 +102,7 @@ if { $::argc > 0 } {
 }
 
 # Set the directory path for the original project from where this script was exported
-set orig_proj_dir "[file normalize "$origin_dir/../"]"
+set orig_proj_dir "[file normalize "$origin_dir"]"
 
 # Create project
 create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7z020clg400-2
@@ -211,13 +211,13 @@ if {[string equal [get_filesets -quiet sim_1] ""]} {
 set obj [get_filesets sim_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/wbm_dgen.vhd" ]\
- [file normalize "${origin_dir}/wbm_dmonp.vhd" ]\
- [file normalize "${origin_dir}/wbs_rxserp.vhd" ]\
- [file normalize "${origin_dir}/wbs_txserp.vhd" ]\
- [file normalize "${origin_dir}/tb_wbtxrxp.vhd" ]\
- [file normalize "${origin_dir}/fichero.txt" ]\
- [file normalize "${origin_dir}/fichero_dmon.txt" ]\
+ [file normalize "${origin_dir}/src/wbm_dgen.vhd" ]\
+ [file normalize "${origin_dir}/src/wbm_dmonp.vhd" ]\
+ [file normalize "${origin_dir}/src/wbs_rxserp.vhd" ]\
+ [file normalize "${origin_dir}/src/wbs_txserp.vhd" ]\
+ [file normalize "${origin_dir}/src/tb_wbtxrxp.vhd" ]\
+ [file normalize "${origin_dir}/src/fichero.txt" ]\
+ [file normalize "${origin_dir}/src/fichero_dmon.txt" ]\
 ]
 set imported_files [import_files -fileset sim_1 $files]
 

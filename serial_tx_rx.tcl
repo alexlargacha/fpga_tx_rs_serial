@@ -28,8 +28,8 @@
 #    "src/wbs_rxserp.vhd"
 #    "src/wbs_txserp.vhd"
 #    "src/tb_wbtxrxp.vhd"
-#    "src/fichero.txt"
-#    "src/fichero_dmon.txt"
+#    "src/input_file.txt"
+#    "src/output_file.txt"
 #
 # 3. The following remote source files that were added to the original project:-
 #
@@ -216,8 +216,8 @@ set files [list \
  [file normalize "${origin_dir}/src/wbs_rxserp.vhd" ]\
  [file normalize "${origin_dir}/src/wbs_txserp.vhd" ]\
  [file normalize "${origin_dir}/src/tb_wbtxrxp.vhd" ]\
- [file normalize "${origin_dir}/src/fichero.txt" ]\
- [file normalize "${origin_dir}/src/fichero_dmon.txt" ]\
+ [file normalize "${origin_dir}/src/input_file.txt" ]\
+ [file normalize "${origin_dir}/src/output_file.txt" ]\
 ]
 set imported_files [import_files -fileset sim_1 $files]
 
@@ -280,7 +280,7 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "src/fichero.txt"
+set file "src/input_file.txt"
 set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -288,7 +288,7 @@ set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "" -objects $file_obj
 
-set file "src/fichero_dmon.txt"
+set file "src/output_file.txt"
 set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj

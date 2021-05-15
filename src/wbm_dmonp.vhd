@@ -86,15 +86,15 @@ begin
 
 	process (clk_i, ack_i, rst_i)
 	type BinFile is file OF CHARACTER;
-	file fich_sal : BinFile open WRITE_MODE is "fichero_dmon.txt";
-	variable caract : CHARACTER; -- Variable de escritura
+	file out_file : BinFile open WRITE_MODE is "output_file.txt";
+	variable caract : CHARACTER; -- write variable
     begin
-        if (rising_edge(clk_i)) then -- flanco de subida
+        if (rising_edge(clk_i)) then
             if rst_i = '0' then
 				if ack_i = '1' then
 					if error_i = '0' then
 						caract := CHARACTER'VAL(conv_integer(dat_i));
-						write(fich_sal,caract);
+						write(out_file,caract);
 					end if;
 				end if;
             end if;

@@ -102,16 +102,16 @@ begin
   
   process (stb_o_s)
   type BinFile is file of character;
-  file fich_ent : BinFile open READ_MODE is "fichero.txt";
-  variable caract : character; -- variable de lectura
+  file input_file : BinFile open READ_MODE is "input_file.txt";
+  variable caract : character; -- read variable
   begin
-      if (rising_edge(stb_o_s)) then -- Se emite nuevo dato en flanco de subida
-          if endfile(fich_ent) then
-              FILE_CLOSE(fich_ent);
-              report "Se ha finalizado la lectura del fichero"
+      if (rising_edge(stb_o_s)) then -- New data is sent on the rising edge
+          if endfile(input_file) then
+              FILE_CLOSE(input_file);
+              report "Input file read finished"
               severity ERROR;
           else
-              read(fich_ent,caract);
+              read(input_file,caract);
               dat_i <= CONV_STD_LOGIC_VECTOR(character'POS(caract),8);
           end if;
       end if;
